@@ -24,25 +24,22 @@ public class Game {
     }
 
     public void play() {
-        // Resettar score innan varje ny omgång
-        player1.resetScore();
-        player2.resetScore();
 
-        // Ber spelare 1 skriva in sitt fulla namn och sparar värdet i scanner
+        // Ber spelare 1 skriva in sitt namn, kastar illegalArgumentException om inmatningen är tom
         while (true) {
             try {
                 System.out.println("Spelare 1: Skriv in ditt förnamn.");
                 player1.setFirstName(scanner.nextLine());
                 System.out.println("Spelare 1: Skriv in ditt efternamn");
                 player1.setLastName(scanner.nextLine());
-                break;
+                break;  // Avbryter loopen om allt gick bra
             } catch (IllegalArgumentException e) {
+                // Felmeddelande om användaren lämnade fältet tomt
                 System.out.println("Du måste mata in ett namn!");
 
             }
 
         }
-        // Ber spelare 2 skriva in sitt fulla namn och sparar värdet i scanner här med
         while (true) {
             try {
                 System.out.println("Spelare 2: Skriv in ditt förnamn.");
@@ -51,12 +48,14 @@ public class Game {
                 player2.setLastName(scanner.nextLine());
                 break;
             } catch (IllegalArgumentException e) {
+
                 System.out.println("Du måste mata in ett namn");
             }
         }
 
 
         // Själva spelets omgång
+
         System.out.println("*******************************************");
         System.out.println(player1.getFullName());
         int roll1 = dice.throwDice();
@@ -83,6 +82,7 @@ public class Game {
 
     }
 
+
     // Användarens menyval
     public void menuChoice() {
         while (isRunning) {
@@ -104,11 +104,22 @@ public class Game {
 
 
             }
+
         }
-        scanner.close();
+
+
     }
 
+    public void startGame() {
+        players();
+        menuChoice();
+        scanner.close();
+
+    }
+
+
 }
+
 
 
 

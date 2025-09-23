@@ -10,11 +10,11 @@ public class Dice {
 
     }
 
-    public int getResult() {
-        return result;
-    }
+//    public int getResult() {
+//        return result;
+//    }
 
-
+    // Metod för att kasta tärningen 2 gånger och spara resultatet för att sedan skriva ut det.
     public int throwDice() {
         int dice1 = random.nextInt(1, 7);
         int dice2 = random.nextInt(1, 7);
