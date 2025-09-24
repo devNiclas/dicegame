@@ -35,7 +35,7 @@ public class Game {
                 break;  // Avbryter loopen om allt gick bra
             } catch (IllegalArgumentException e) {
                 // Felmeddelande om användaren lämnade fältet tomt
-                System.out.println("Du måste mata in ett namn!");
+                System.out.println(e.getMessage());
 
             }
 
@@ -48,8 +48,7 @@ public class Game {
                 player2.setLastName(scanner.nextLine());
                 break;
             } catch (IllegalArgumentException e) {
-
-                System.out.println("Du måste mata in ett namn");
+                System.out.println(e.getMessage());
             }
         }
 
@@ -85,6 +84,7 @@ public class Game {
 
     // Användarens menyval
     public void menuChoice() {
+        // Loopar huvudmenyn tills användaren väljer att avsluta
         while (isRunning) {
             System.out.println("Välkommen till mitt tärningsspel!");
             System.out.println("Skriv in ditt val");
@@ -92,7 +92,7 @@ public class Game {
             System.out.println("Avsluta");
             String menuChoice = scanner.nextLine();
 
-
+            // if sats för att kontrollera användarens input
             if (menuChoice.equalsIgnoreCase("Spela")) {
                 play();
 
@@ -110,6 +110,7 @@ public class Game {
 
     }
 
+    // Metod för att starta spelet, genom att skapa spelare och visa huvudmenyn
     public void startGame() {
         players();
         menuChoice();

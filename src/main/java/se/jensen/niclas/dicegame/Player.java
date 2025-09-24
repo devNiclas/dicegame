@@ -15,14 +15,14 @@ public class Player {
     public void setFirstName(String firstName) {
 
         if (firstName == null || firstName.isBlank()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Förnamn får inte vara tomt!");
         }
         this.firstName = firstName;
     }
 
     public void setLastName(String lastName) {
         if (lastName == null || lastName.isBlank()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Efternamn får inte vara tomt!");
 
         }
         this.lastName = lastName;
